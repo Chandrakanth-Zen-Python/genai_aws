@@ -1,0 +1,98 @@
+
+Prompt:
+
+
+You are an AI assistant helping a CTO.
+
+Task:
+Summarize the following incident report in exactly 5 bullet points.
+
+
+Incident:
+
+On 12 Jan 2026, FinSure detected unauthorized access to its production environment caused by compromised employee credentials. The attacker exfiltrated sensitive customer data over a 6-hour window.
+08:45 AM
+A data analyst receives a phishing email disguised as a Microsoft Teams security alert.
+
+09:02 AM
+The analyst enters credentials on a fake login page.
+→ Credentials are harvested.
+
+09:18 AM
+Attacker logs in via VPN from an unusual IP (Eastern Europe).
+
+09:25 AM
+Attacker accesses:
+
+AWS S3 bucket containing customer risk reports
+
+Read-only access escalated using misconfigured IAM role
+
+11:40 AM
+~2.4 GB of data downloaded (CSV & Parquet files)
+
+03:10 PM
+CloudWatch anomaly alert triggers on abnormal data egress.
+
+03:25 PM
+Security team disables the compromised account and revokes IAM tokens.
+
+
+
+Constraints:
+- Use professional tone
+- Highlight risks and action items
+- Do not add assumptions
+- Use only the provided information
+
+
+
+Output From AWS Nova :
+===========================================================================
+
+* On 12 Jan 2026, FinSure experienced unauthorized access to its production environment due to compromised employee credentials, resulting in the exfiltration of sensitive customer data.
+* The incident initiated at 08:45 AM when a data analyst fell victim to a phishing email disguised as a Microsoft Teams security alert, leading to credential harvesting at 09:02 AM.
+* At 09:18 AM, the attacker accessed the system via VPN from an unusual Eastern European IP, subsequently gaining access to an AWS S3 bucket containing customer risk reports by 09:25 AM.
+* Approximately 2.4 GB of data, including CSV and Parquet files, was downloaded by the attacker over a 6-hour window, concluding at 11:40 AM.
+* A CloudWatch anomaly alert at 03:10 PM led to the security team's prompt action at 03:25 PM, disabling the compromised account and revoking IAM tokens to mitigate further damage.
+
+
+
+Output From Claude (Sonnet 4.5):
+===========================================================================
+
+Incident Summary – 12 January 2026
+
+• Breach Overview: FinSure experienced unauthorized access to its production environment resulting in the exfiltration of approximately 2.4 GB of sensitive customer risk reports (CSV and Parquet files) from an AWS S3 bucket over a 6-hour period.
+
+• Attack Vector: A data analyst fell victim to a phishing email impersonating a Microsoft Teams security alert, resulting in credential compromise at 09:02 AM; the attacker subsequently accessed the VPN from an Eastern European IP address and leveraged a misconfigured IAM role to escalate from read-only to broader access.
+
+• Detection Gap: The breach occurred between 09:18 AM (initial unauthorized VPN login) and 03:10 PM (CloudWatch anomaly detection), representing a ~6-hour window where the attacker operated undetected within the production environment.
+
+• Containment Actions: The security team disabled the compromised account and revoked IAM tokens at 03:25 PM, approximately 15 minutes after the anomaly alert triggered, successfully terminating the attacker's access.
+
+• Critical Risk Factors: Key vulnerabilities include insufficient phishing awareness training, lack of multi-factor authentication enforcement on VPN access, misconfigured IAM roles enabling privilege escalation, and delayed detection of abnormal data egress patterns—all requiring immediate remediation.
+
+
+
+
+
+Output From Meta Llama 3 8B Instruct
+========================================================================= 
+Here is a summary of the incident report in exactly 5 bullet points:
+
+• On January 12, 2026, FinSure detected unauthorized access to its production environment due to compromised employee credentials, resulting in the exfiltration of sensitive customer data over a 6-hour window.
+• The incident began with a phishing email disguised as a Microsoft Teams security alert, which was received by a data analyst at 8:45 AM. The analyst entered their credentials on a fake login page, allowing the attacker to harvest their credentials.
+• The attacker then logged in via VPN from an unusual IP address in Eastern Europe at 9:18 AM and accessed an AWS S3 bucket containing customer risk reports using a misconfigured IAM role.
+• The attacker downloaded approximately 2.4 GB of sensitive data (CSV and Parquet files) from the AWS S3 bucket between 9:25 AM and 11:40 AM.
+• The security team responded to the incident by disabling the compromised account and revoking IAM tokens at 3:25 PM, after a CloudWatch anomaly alert triggered on abnormal data egress at 3:10 PM.
+
+
+
+Output For Mistral Small (24.02)
+
+1. Unauthorized Access: On 12 Jan 2026, an attacker gained unauthorized access to FinSure's production environment using compromised employee credentials obtained via a phishing email.
+2. Data Breach: Over a 6-hour window, the attacker exfiltrated approximately 2.4 GB of sensitive customer data from an AWS S3 bucket containing customer risk reports.
+3. Risk Escalation: The initial read-only access was escalated using a misconfigured IAM role, highlighting the need for proper IAM role configuration to prevent unauthorized access.
+4. Detection and Response: The security breach was detected and addressed after an anomaly alert triggered in CloudWatch due to abnormal data egress. The security team promptly disabled the compromised account and revoked IAM tokens.
+5. Action Items: Employee training on phishing email identification and proper handling of login credentials is recommended. Additionally, a review and reconfiguration of IAM roles to prevent unauthorized access escalation is essential.
