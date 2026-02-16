@@ -1,0 +1,35 @@
+{
+  "customer_support_v1": {
+    "version": "1.0.0",
+    "created": "2024-01-15",
+    "author": "john@company.com",
+    "prompt": "You are a customer support agent. Answer questions politely.",
+    "metrics": {
+      "satisfaction": 3.2,
+      "avg_tokens": 150,
+      "cost_per_query": 0.002
+    }
+  },
+  "customer_support_v2": {
+    "version": "2.0.0",
+    "created": "2024-02-01",
+    "author": "sarah@company.com",
+    "prompt": "You are a friendly customer support expert. Provide concise, helpful answers. Always ask if they need further assistance.",
+    "metrics": {
+      "satisfaction": 4.1,
+      "avg_tokens": 120,
+      "cost_per_query": 0.0016
+    }
+  },
+  "customer_support_v3": {
+    "version": "3.0.0",
+    "created": "2024-02-14",
+    "author": "sarah@company.com",
+    "prompt": "You are an expert customer support specialist. Be friendly and concise. If the issue is urgent, acknowledge it. Include relevant links when available. End with: 'Is there anything else I can help with?'",
+    "metrics": {
+      "satisfaction": 4.5,
+      "avg_tokens": 110,
+      "cost_per_query": 0.0015
+    }
+  }
+}

@@ -1,0 +1,3 @@
+curl -X POST https://q3v31ax0z4.execute-api.us-east-1.amazonaws.com/prod/chat \
+     -H "Content-Type: application/json" \
+     -d '{"message": "Explain serverless in one sentence"}'
